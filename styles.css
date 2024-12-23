@@ -1,120 +1,71 @@
-/* General Reset */
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Webpage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background and main content container -->
+  <div class="background">
+    <div class="content">
+      <!-- Title -->
+      <h1 class="main-title">Welcome to your webpage, my love ❤️</h1>
 
+      <!-- Buttons -->
+      <button id="anniversary-button">See anniversary date📅</button>
+      <button id="versicle-button">See daily verse📕</button>
+      <button id="playlist-button">our playlist🎶</button>
+      <button id="dates-button">dates🌹</button>
+      <button id="gifts-button">gifts🎁</button>
+      
 
-.background  {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('background.jpg') no-repeat center center/cover; /* Image layer */
-  z-index: 0;
-}
+      <!-- Timer Section -->
+      <div id="timer-section" class="hidden">
+        <h2>Time until our anniversary</h2>
+        <p id="countdown-timer"></p>
+      </div>
 
-.background::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgb(249, 238, 188,0.1), rgb(234, 151, 9,0.8)); /* Gradient layer */
-  z-index: 1;
-}
+      <!-- Versicle Section -->
+      <div id="versicle-section" class="hidden">
+        <h2>Your daily verse</h2>
+        <p class="description">Let this verse inspire your day</p>
+        <div class="versicle-box" id="versicle-box"></div>
+      </div>
 
-.background-content {
-  position: relative;
-  z-index: 2; /* Content sits above the gradient and image */
-  color: white;
-  text-align: center;
-}
+      <!-- playlist Section -->
+      <div id="playlist-section" class="hidden">
+        <h2>Our playlist❤️</h2>
+        <p class="description"></p>
+        <div class="playlist-box" id="playlist-box"></div>
+      </div>
 
+       <!-- dates Section -->
+       <div id="dates-section" class="hidden">
+        <h2>Choose a number and we'll do it!❤️</h2>
+        <p class="description"></p>
+        <div class="dates-box" id="dates-box"></div>
+      </div>
 
+       <!-- gifts Section -->
+       <div id="gifts-section" class="hidden">
+        <h2>Wish List❤️</h2>
+        <p class="description"></p>
+        <div class="gifts-box" id="gifts-box"></div>
+      </div>
 
+     
+    
+    </div>
+    <!-- Menu Icon -->
+    <button id="menu-icon">
+      <img src="icon.png" alt="Menu" class="menu-icon-image">
+    </button>
+    
 
-/* Main content container */
-.content {
-  position: relative;
-  text-align: center;
-  width: 80%;
-  max-width: 600px;
-  z-index: 1;
-}
+   </div>
 
-/* Main title */
-.main-title {
-  color: #FF8C42;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-/* Buttons */
-button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: white;
-  background-color: #FF8C42;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Timer Section */
-#timer-section h2, #versicle-section h2 {
-  color: #FF8C42;
-  margin-bottom: 10px;
-}
-
-/* Description */
-.description {
-  color: #333;
-  font-style: italic;
-}
-
-/* Versicle Box */
-.versicle-box {
-  margin-top: 15px;
-  padding: 15px;
-  background: rgba(255, 140, 71, 1);
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  color: white;
-  display: inline-block; /* Ensures it wraps content only */
-  max-width: 80%; /* Prevents overflow */
-  text-align: center;
-}
-
-/* Menu Icon */
-#menu-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 45px; /* Adjust size */
-  height: 45px; /* Adjust size */
-  padding: 0;
-  border: none;
-  background: none; /* Remove default button background */
-  cursor: pointer;
-  z-index: 3; /* Place it above other elements */
-}
-
-/* Image inside the Menu Icon */
-.menu-icon-image {
-  width: 100%; /* Fill the button */
-  height: 100%; /* Fill the button */
-  object-fit: contain; /* Ensure proper image scaling */
-}
-
-/* Hidden Elements */
-.hidden {
-  display: none;
-}
+  <script src="script.js"></script>
+</body>
+</html>
