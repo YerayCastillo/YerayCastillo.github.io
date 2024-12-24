@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   
@@ -14,67 +13,75 @@
 </head>
 <body>
 
-  <!-- Background and main content container -->
-  <div class="background">
-    <div id="background-anniversary" class="background-anniversary hidden"></div>
-     <div class="content">
-      <!-- Title -->
-      <h1 class="main-title">Welcome to your webpage, my love ❤️</h1>
-
-      <!-- Buttons -->
-      <div id="buttons">
-        <button id="anniversary-button">See anniversary date📅</button>
-        <button id="versicle-button">See daily verse📕</button>
-        <button id="playlist-button">Our playlist🎶</button>
-        <button id="dates-button">Dates🌹</button>
-        <button id="gifts-button">Gifts🎁</button>
-      </div>
-      
-
-      <!-- Timer Section -->
-      <div id="timer-section" class="hidden">
-        <h2>Time until our anniversary</h2>
-        <p id="countdown-timer"></p>
-      </div>
-
-      <!-- Versicle Section -->
-      <div id="versicle-section" class="hidden">
-        <h2>Your daily verse</h2>
-        <p class="description">Let this verse inspire your day</p>
-        <div class="versicle-box" id="versicle-box"></div>
-      </div>
-
-      <!-- playlist Section -->
-      <div id="playlist-section" class="hidden">
-        <h2>Our playlist❤️</h2>
-        <p class="description"></p>
-        <div class="playlist-box" id="playlist-box"></div>
-      </div>
-
-       <!-- dates Section -->
-       <div id="dates-section" class="hidden">
-        <h2>Choose a number and we'll do it!❤️</h2>
-        <p class="description"></p>
-        <div class="dates-box" id="dates-box"></div>
-      </div>
-
-       <!-- gifts Section -->
-       <div id="gifts-section" class="hidden">
-        <h2>Wish List❤️</h2>
-        <p class="description"></p>
-        <div class="gifts-box" id="gifts-box"></div>
-      </div>
-
-     
-    
+  <div class="background-container">
+    <div id="background-pooh" class="background-pooh"></div>
+    <div id="background-gradient" class="background-gradient"></div>
+    <div id="anniversary-background" class="anniversary-background hidden"></div>
+  </div>
+  
+  <!-- Main content container -->
+  <div class="content">
+    <!-- Title -->
+    <h1 id= "main-title" class="main-title">Welcome to your webpage, my love ❤️</h1>
+  
+    <!-- Buttons -->
+    <div id="buttons">
+      <button id="anniversary-button">See anniversary date📅</button>
+      <button id="versicle-button">See daily verse📕</button>
+      <button id="playlist-button">Our playlist🎶</button>
+      <button id="dates-button">Dates🌹</button>
+      <button id="gifts-button">Gifts🎁</button>
     </div>
-    <!-- Menu Icon -->
-    <button id="menu-icon">
-      <img src="icon.png" alt="Menu" class="menu-icon-image">
-    </button>
-    
+  
+    <!-- Sections (Timer, Versicle, etc.) -->
+    <div id="timer-section" class="hidden">
+      <h2>Time until our anniversary</h2>
+      <p id="countdown-timer"></p>
+    </div>
+    <div id="versicle-section" class="hidden">
+      <h2>Your daily verse</h2>
+      <div class="versicle-box" id="versicle-box"></div>
+    </div>
+    <div id="playlist-section" class="hidden">
+      <h2>Our playlist❤️</h2>
+      <div class="playlist-box" id="playlist-box"></div>
+    </div>
+  </div>
 
-   </div>
+  <!--PlayList songs-->
+  <div id='ourPlaylist' class="ourPlaylist hidden">
+    <button class="ourPlaylist-button">
+      <img src="song1.jpg" alt="song1" class="songs">
+      <span class="song-title">Song Title 1</span>
+    </button>
+    <button class="ourPlaylist-button">
+      <img src="song2.jpg" alt="song2" class="songs">
+      <span class="song-title">Song Title 2</span>
+    </button>
+    <button class="ourPlaylist-button">
+      <img src="song3.jpg" alt="song3" class="songs">
+      <span class="song-title">Song Title 3</span>
+    </button>
+    <button class="ourPlaylist-button">
+      <img src="song4.jpg" alt="song4" class="songs">
+      <span class="song-title">Song Title 4</span>
+    </button>
+    <button class="ourPlaylist-button">
+      <img src="song5.jpg" alt="song5" class="songs">
+      <span class="song-title">Song Title 5</span>
+    </button>
+    <button class="ourPlaylist-button">
+      <img src="song6.jpg" alt="song6" class="songs">
+      <span class="song-title">Song Title 6</span>
+    </button>
+  </div>
+  
+  
+  <!-- Menu Icon -->
+  <button id="menu">
+    <img src="icon.png" alt="Menu" class="menu-image">
+  </button>
+  
 
   <script src="script.js"></script>
 </body>
