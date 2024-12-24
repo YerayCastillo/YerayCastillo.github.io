@@ -4,74 +4,89 @@ body, html {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
-}
-
-
-.background  {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('background.jpg') no-repeat center center/cover; /* Image layer */
-  z-index: 0;
+  flex-direction: column;
 }
 
-.background::before{
-  content: '';
+@font-face {
+  font-family: 'Digital7';
+  src: url('digital-7.ttf') format('truetype');
+}
+
+/* Container for background and gradient layers */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Ensures it's behind the content */
+}
+
+/* Background image layer */
+.background-pooh {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgb(249, 238, 188,0.1), rgb(234, 151, 9,0.8)); /* Gradient layer */
+  background: url('background.jpg') no-repeat center center/cover; /* Replace with your actual image */
   z-index: 1;
 }
 
-.background.no-gradient::before {
-  background: none; /* Removes the gradient */
+/* Gradient overlay layer */
+.background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(249, 238, 188, 0.1), rgba(234, 151, 9, 0.8));
+  z-index: 2;
 }
+
+/* Anniversary background */
+.anniversary-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('anniversary.jpg') no-repeat center center/cover; /* Replace with your actual image */
+  z-index: 3;
+}
+
+
+
 
 .background-content {
   position: relative;
-  z-index: 2; /* Content sits above the gradient and image */
+  z-index: 3; /* Content sits above the gradient and image */
   color: white;
   text-align: center;
 }
 
-.background-anniversary{
- 
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('anniversary-background.jpg') no-repeat center center/cover; /* Image layer */
-  
-  
-}
 
 
-/* Main content container */
+/* Main content */
 .content {
   position: relative;
+  z-index: 2; /* Ensures content is above background and gradient */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
-  width: 80%;
-  max-width: 600px;
-  z-index: 1;
 }
 
 /* Main title */
 .main-title {
   color: #DC4500;
   font-family: "Chewy", serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 3rem;
-  margin-top: 1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow with slight blur */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Buttons */
@@ -90,8 +105,8 @@ button {
 }
 
 /* Timer Section */
-#timer-section h2, #versicle-section h2 {
-  padding: 20px;
+#timer-section h2{
+  padding: 1px;
   font-size: 2rem;
   font-family: "Chewy", serif;
   font-weight: 400;
@@ -104,10 +119,41 @@ button {
 
 #countdown-timer {
   padding: 20px;
+  font-size: 1.8rem;
   text-align: center;
   color: whitesmoke; /* Text color */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  font-family: 'Digital7';
 }
+
+
+/* Remove margin between title and content */
+#versicle-section h2 {
+  font-size: 2rem;
+  font-family: "Chewy", serif;
+  color: whitesmoke;/* change this change colour of text */
+  margin-bottom: 10; 
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust the margin and padding inside the versicle box */
+#versicle-box {
+  margin-top: 1;
+  padding: 8px; 
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove extra space around the content inside the box */
+#versicle-box h3 {
+  margin: 0; 
+  padding: 0; 
+}
+
+#versicle-box p {
+  margin: 0; /* Remove top and bottom margins */
+  padding: 0; /* Remove any padding */
+}
+
 
 /* Description */
 .description {
@@ -117,19 +163,19 @@ button {
 
 /* Versicle Box */
 .versicle-box {
-  margin-top: 15px;
-  padding: 15px;
+  margin-top: 5px;
+  padding: 5px;
   background: rgba(255, 140, 71, 1);
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   color: white;
   display: inline-block; /* Ensures it wraps content only */
-  max-width: 80%; /* Prevents overflow */
+  max-width: 75%; /* Prevents overflow */
   text-align: center;
 }
 
 /* Menu Icon */
-#menu-icon {
+#menu{
   position: absolute;
   top: 15px;
   left: 15px;
@@ -144,11 +190,73 @@ button {
 }
 
 /* Image inside the Menu Icon */
-.menu-icon-image {
+.menu-image {
   width: 100%; /* Fill the button */
   height: 100%; /* Fill the button */
   object-fit: contain; /* Ensure proper image scaling */
 }
+
+/* Stack container */
+.ourPlaylist {
+  display: flex;
+  flex-direction: column; /* Stack the buttons vertically */
+  gap: 10px;
+  position: fixed; /* Fix the container to the viewport */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  width: 100%; /* Optional: Adjust width to fit the viewport */
+  padding: 10px; /* Add padding for spacing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for emphasis */
+}
+
+/* Button styling */
+.ourPlaylist-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  width: 300px; 
+  height: 60px; 
+  background-color: #1db954; 
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 10px; /* Space for the image */
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Album cover image */
+.songs {
+  width: 50px; /* Small square size for the image */
+  height: 50px;
+  border-radius: 5px; /* Round corners */
+  object-fit: cover; /* Ensure the image fills the square */
+  margin-right: 10px; 
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Song title styling */
+.song-title {
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  flex-grow: 1; /* Allow text to take up remaining space */
+  padding-right: 10px; /* Add some padding to the right */
+}
+
+/* Hover effect on the song button */
+.ourPlaylist-button:hover {
+  transform: scale(1.1); /* Zoom-in effect on hover */
+}
+
+/* Hover effect on the song title */
+.ourPlaylist-button:hover .song-title {
+  opacity: 1; /* Show title with full opacity */
+}
+
+
 
 /* Hidden Elements */
 .hidden {
