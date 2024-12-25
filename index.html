@@ -16,7 +16,9 @@
   <div class="background-container">
     <div id="background-pooh" class="background-pooh"></div>
     <div id="background-gradient" class="background-gradient"></div>
+    <div id="playlist-background" class="playlist-background hidden"></div>
     <div id="anniversary-background" class="anniversary-background hidden"></div>
+    <div id="boardOfDirectors-background" class="boardOfDirectors-background hidden"></div>    
   </div>
   
   <!-- Main content container -->
@@ -25,11 +27,11 @@
     <h1 id= "main-title" class="main-title">Welcome to your webpage, my love ❤️</h1>
   
     <!-- Buttons -->
-    <div id="buttons">
+    <div id="main-buttons" class = 'main-buttons'>
       <button id="anniversary-button">See anniversary date📅</button>
       <button id="versicle-button">See daily verse📕</button>
       <button id="playlist-button">Our playlist🎶</button>
-      <button id="dates-button">Dates🌹</button>
+      <button id="boardOfDirectors-button">board of Directors👩🏽‍❤️‍💋‍👨🏽</button>
       <button id="gifts-button">Gifts🎁</button>
     </div>
   
@@ -38,43 +40,112 @@
       <h2>Time until our anniversary</h2>
       <p id="countdown-timer"></p>
     </div>
+
     <div id="versicle-section" class="hidden">
       <h2>Your daily verse</h2>
       <div class="versicle-box" id="versicle-box"></div>
     </div>
+
     <div id="playlist-section" class="hidden">
       <h2>Our playlist❤️</h2>
       <div class="playlist-box" id="playlist-box"></div>
     </div>
+    
+
+    <div id="directors-section" class= "directors-section hidden">
+      
+      <h1 class="section-title1">Our Board Of Directors 👩🏽‍❤️‍💋‍👨🏽</h1>
+
+      <div id="collage-container">
+      <img src="collage1.jpg" alt="Image 1" class="collage-image">
+      <img src="collage2.jpg" alt="Image 2" class="collage-image">
+      <img src="collage3.jpg" alt="Image 3" class="collage-image">
+      <img src="collage4.jpg" alt="Image 4" class="collage-image">
+      <img src="collage5.jpg" alt="Image 5" class="collage-image">
+      <img src="collage6.jpg" alt="Image 6" class="collage-image">
+     </div>
+      
+      <h1 class="section-title1">Our Board Of Directors 👩🏽‍❤️‍💋‍👨🏽</h1>
+      
+      <h2 class="section-title">Things We Improved This Year</h2>
+      <div class="notebook-box">
+        <p>available mañana...</p>
+      </div>
+
+      <h2 class="section-title">Things to Improve for Next Year</h2>
+      <div class="notebook-box">
+        <p>available mañana...</p>
+      </div>
+
+      <h2 class="section-title">Things to Pray for Next Year</h2>
+      <div id="collage-container-prayer">
+      <img src="prayer1.jpg" alt="Prayer Image 1" class="collage-image">
+      <img src="prayer2.jpg" alt="Prayer Image 2" class="collage-image">
+      <img src="prayer3.jpg" alt="Prayer Image 3" class="collage-image">
+      <img src="prayer4.jpg" alt="Prayer Image 4" class="collage-image">
+      <img src="prayer5.jpg" alt="Prayer Image 5" class="collage-image">
+      <img src="prayer6.jpg" alt="Prayer Image 6" class="collage-image">
+      </div>
+    </div>
+
+
+   
+
+
+  
+    
+
   </div>
 
-  <!--PlayList songs-->
-  <div id='ourPlaylist' class="ourPlaylist hidden">
-    <button class="ourPlaylist-button">
-      <img src="song1.jpg" alt="song1" class="songs">
-      <span class="song-title">Song Title 1</span>
+   <!--PlayList songs-->
+   <a href="https://open.spotify.com/playlist/3OxJAxxVcpxIvfFfQOac8M?si=2F7QCbiZQ2q-nrWtjAifhg&pi=e-JBWUKDjdQpep" class="playlist-link">
+   <div id='playlist' class="playlist hidden">
+    <button class="playlist-buttons">
+      <img src="song1.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">Tu poeta</span>
+        <span class="song-artist">Alex Campos</span>
+      </div>
     </button>
-    <button class="ourPlaylist-button">
-      <img src="song2.jpg" alt="song2" class="songs">
-      <span class="song-title">Song Title 2</span>
+    <button class="playlist-buttons">
+      <img src="song2.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">La Chica De Ipanema</span>
+        <span class="song-artist">Jarabe De Palo</span>
+      </div>
     </button>
-    <button class="ourPlaylist-button">
-      <img src="song3.jpg" alt="song3" class="songs">
-      <span class="song-title">Song Title 3</span>
+    <button class="playlist-buttons">
+      <img src="song3.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">Mi Bendicion</span>
+        <span class="song-artist">Juan Luis Guerra</span>
+      </div>
     </button>
-    <button class="ourPlaylist-button">
-      <img src="song4.jpg" alt="song4" class="songs">
-      <span class="song-title">Song Title 4</span>
+    <button class="playlist-buttons">
+      <img src="song4.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">Te Regalo</span>
+        <span class="song-artist">Carla Morrison</span>
+      </div>
     </button>
-    <button class="ourPlaylist-button">
-      <img src="song5.jpg" alt="song5" class="songs">
-      <span class="song-title">Song Title 5</span>
+    <button class="playlist-buttons">
+      <img src="song5.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">La mujer Perfecta</span>
+        <span class="song-artist">KURT</span>
+      </div>
     </button>
-    <button class="ourPlaylist-button">
-      <img src="song6.jpg" alt="song6" class="songs">
-      <span class="song-title">Song Title 6</span>
+    <button class="playlist-buttons">
+      <img src="song6.jpg" alt="Album Cover" class="songs">
+      <div class="song-info">
+        <span class="song-title">La Chica De Ipanema</span>
+        <span class="song-artist">Jarabe De Palo</span>
+      </div>
     </button>
   </div>
+</a>
+
+
   
   
   <!-- Menu Icon -->
