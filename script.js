@@ -10,10 +10,16 @@ function showSection(sectionId) {
 
 // redirects to main menu
 document.getElementById('menu').addEventListener('click', () => {
-  document.getElementById('buttons').classList.remove('hidden');
+  document.getElementById('main-buttons').classList.remove('hidden');
+  document.getElementById('main-title').classList.remove('hidden');
   document.getElementById('anniversary-background').classList.add('hidden');
   document.getElementById('background-gradient').classList.remove('hidden');
   document.getElementById('background-pooh').classList.remove('hidden');
+  document.getElementById('playlist-background').classList.add('hidden');
+  document.getElementById('playlist').classList.add('hidden');
+  document.getElementById('directors-section').classList.add('hidden');
+  document.getElementById('boardOfDirectors-background').classList.add('hidden');
+  
   showMainMenu();
  });
 
@@ -23,17 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const anniversaryButton = document.getElementById('anniversary-button');
   const versicleButton = document.getElementById('versicle-button');
   const playlistButton = document.getElementById('playlist-button');
-  const dateButton = document.getElementById('anniversary-button');
-  const giftsButton = document.getElementById('anniversary-button');
+  const BoardOfDirectorsButton = document.getElementById('boardOfDirectors-button');
+  const giftsButton = document.getElementById('gifts-button');
 
   //Images and gradients
   const poohBackground = document.getElementById('background-pooh');
   const gradientBackground = document.getElementById('background-gradient');
   const anniversaryBackground = document.getElementById('anniversary-background');
-
+  const playlistBackground = document.getElementById('playlist-background');
+  const boardOfDirectorsBackground = document.getElementById('boardOfDirectors-background');
+  const boardOfDirectors = document.getElementById('boardOfDirectors-section');
   //buttons to hide
-  const Buttons = document.getElementById('buttons');
-  const ourPlaylist = document.getElementById('ourPlaylist');
+  const Buttons = document.getElementById('main-buttons');
+  const Playlist = document.getElementById('playlist');
+  
+  //links
+
 
   // Actions of Anniversary button
   anniversaryButton.addEventListener('click', () => {
@@ -53,18 +64,39 @@ document.addEventListener('DOMContentLoaded', () => {
     showSection('versicle-section');
   });
 
+
   // Actions of playlist button
   playlistButton.addEventListener('click', () => {
     Buttons.classList.add('hidden');//removes all buttons
     poohBackground.classList.add('hidden');//removes pooh image
     gradientBackground.classList.add('hidden');//removes gradient
     anniversaryBackground.classList.add('hidden');//removes anniversary image
-    ourPlaylist.classList.remove('hidden');//shows the songs
-    document.getElementById('main-title').classList.add('hidden');
+    Playlist.classList.remove('hidden');//shows the songs
+    playlistBackground.classList.remove('hidden');//shows gradient for playlist section
+    document.getElementById('main-title').classList.add('hidden');//removes the main title
+    showSection('playlist-section');
+    Playlist.forEach(button => {
+      Playlist.addEventListener('click', () => {
+        const link = button.getAttribute('playlist-link'); // Get the link from the data attribute
+        window.location.href = link; // Redirect to the link
+      });
+    });
     
     
   });
 
+  
+
+  //Actions of Board of directors button
+  BoardOfDirectorsButton.addEventListener('click', () => {
+    Buttons.classList.add('hidden');//removes all buttons
+    poohBackground.classList.add('hidden');//removes pooh image
+    gradientBackground.classList.add('hidden');//removes gradient
+    anniversaryBackground.classList.add('hidden');//removes anniversary image
+    boardOfDirectorsBackground.classList.remove('hidden');
+    document.getElementById('main-title').classList.add('hidden');//removes the main title
+    showSection('directors-section');
+  });
 
 });
 
