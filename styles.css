@@ -54,7 +54,31 @@ body, html {
   width: 100%;
   height: 100%;
   background: url('anniversary.jpg') no-repeat center center/cover; /* Replace with your actual image */
-  z-index: 3;
+  z-index: 2;
+}
+
+/* Gradient playlist overlay layer */
+.playlist-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(80deg, #202a2d, #081514 50%,#2e393b);
+
+
+  z-index: 2;
+}
+
+/* Anniversary background */
+.boardOfDirectors-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #a1c4fd, #c2e9fb); /* Light blue to pastel light pink */
+  z-index: 2;
 }
 
 
@@ -89,20 +113,6 @@ body, html {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Buttons */
-button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: white;
-  background-color: #FF8C42;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(220, 69, 0, 3.5); 
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-  cursor: pointer;
-}
 
 /* Timer Section */
 #timer-section h2{
@@ -116,6 +126,7 @@ button {
   margin-bottom: 10px;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 
 #countdown-timer {
   padding: 20px;
@@ -176,7 +187,7 @@ button {
 
 /* Menu Icon */
 #menu{
-  position: absolute;
+  position: fixed;
   top: 15px;
   left: 15px;
   width: 45px; /* Adjust size */
@@ -196,64 +207,234 @@ button {
   object-fit: contain; /* Ensure proper image scaling */
 }
 
-/* Stack container */
-.ourPlaylist {
+
+/* Playlist section title */
+#playlist-section h2 {
+  position: fixed; /* Fix the title at the top */
+  top: 40px; /* Align at the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Make it span the full width */
+  font-size: 2rem;
+  font-family: "Chewy", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: whitesmoke;
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners only */
+  margin: 0; /* Remove default margins */
+  bottom: 30px;
+  text-align: center; /* Center the text */
+  z-index: 1000; /* Ensure it stays above other elements */
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+ 
+/* Main buttons container */
+.playlist {
   display: flex;
-  flex-direction: column; /* Stack the buttons vertically */
-  gap: 10px;
-  position: fixed; /* Fix the container to the viewport */
-  top: 0; /* Position at the top */
-  left: 0; /* Position at the left */
-  width: 100%; /* Optional: Adjust width to fit the viewport */
-  padding: 10px; /* Add padding for spacing */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for emphasis */
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  position: fixed; /* Keep it fixed at the top */
+  top: 100px; /* Adjust this to create the desired gap from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Correct centering */
+  padding: 20px; /* Adjust this padding to make the buttons fit nicely */
+  z-index: 1000; /* Ensure the playlist stays on top of other content */
 }
 
-/* Button styling */
-.ourPlaylist-button {
+/* Main button styles */
+.playlist-buttons{
   display: flex;
+  position: fixed;
   align-items: center;
-  justify-content: flex-start; /* Align items to the left */
-  width: 300px; 
-  height: 60px; 
-  background-color: #1db954; 
-  color: #fff; /* White text */
+  justify-content: flex-start; /* Ensure the content inside is aligned properly */
+  width: 300px;
+  height: 60px;
+  background-color: #1d4646;
+  color: #fff;
   border: none;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  padding-left: 10px; /* Space for the image */
+  padding-left: 10px;
   position: relative;
   transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px 2px rgba(255, 255, 255, 0.15); /* White shadow */
+  z-index: 10; /* Ensure the button is on top */
 }
 
-/* Album cover image */
+/* Hover effect for buttons */
+.playlist-buttons:hover {
+  transform: scale(1.15); /* Slightly larger on hover */
+}
+
 .songs {
-  width: 50px; /* Small square size for the image */
+  width: 50px;
   height: 50px;
-  border-radius: 5px; /* Round corners */
-  object-fit: cover; /* Ensure the image fills the square */
-  margin-right: 10px; 
-  transition: transform 0.3s ease; /* Smooth transition */
+  border-radius: 5px;
+  object-fit: cover;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Song title styling */
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .song-title {
   font-size: 1rem;
-  font-family: Arial, sans-serif;
-  text-align: left;
-  flex-grow: 1; /* Allow text to take up remaining space */
-  padding-right: 10px; /* Add some padding to the right */
+  flex-grow: 1;
+  margin-left: 0;
+
 }
 
-/* Hover effect on the song button */
-.ourPlaylist-button:hover {
-  transform: scale(1.1); /* Zoom-in effect on hover */
+
+.song-artist {
+  font-size: 0.9rem;
+  color: #b3b3b3; /* Light gray color for the artist's name */
+  margin-top: 4px; /* Add a little space between song title and artist */
+  margin-left: 0;
 }
 
-/* Hover effect on the song title */
-.ourPlaylist-button:hover .song-title {
-  opacity: 1; /* Show title with full opacity */
+
+
+/* ...................................................*/
+
+/* Main buttons container */
+.main-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center;
+  gap: 15px; /* Add space between buttons */
+  margin-top: 20px;
+}
+
+/* Main button styles */
+.main-buttons button {
+  background-color: #FF9900; /* Orange color */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  width: 250px; /* Uniform button width */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for buttons */
+.main-buttons button:hover {
+  background-color: #FF7700; /* Darker orange on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+}
+
+
+
+/* Collage container */
+#collage-container-prayer {
+  display: flex;
+  justify-content: center; /* Center the images */
+  gap: 10px; /* Add space between images */
+  margin-top: 100px; /* Space below the title and subtitle */
+  flex-wrap: wrap; /* Allow images to wrap if the screen is too small */
+  z-index: 3; /* Set a higher z-index to appear above .boardOfDirectors-background */
+  position: relative; /* Ensure z-index takes effect */
+}
+
+#collage-container{
+  display: flex;
+  justify-content: center; /* Center the images */
+  gap: 10px; /* Add space between images */
+  margin-top: 780px; /* Space below the title and subtitle */
+  flex-wrap: wrap; /* Allow images to wrap if the screen is too small */
+  z-index: 3; /* Set a higher z-index to appear above .boardOfDirectors-background */
+  position: relative; /* Ensure z-index takes effect */
+}
+
+/* Images inside collage container */
+#collage-container .collage-image,
+#collage-container-prayer .collage-image {
+  width: calc(33.33% - 20px); /* Fit three images per row */
+  max-width: 200px; /* Optional max size for responsiveness */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for collage images */
+#collage-container .collage-image:hover,
+#collage-container-prayer .collage-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Chewy', serif;
+  font-size: 2rem;
+  margin: 40px 0 20px; /* Adds spacing above and below */
+  color: #DC4500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-title1 {
+  position: fixed; /* Fix the title at the top of the screen */
+  top: 0; /* Ensure it stays at the top */
+  left: 0; /* Align it to the left edge */
+  width: 100%; /* Make the title span the full width */
+  font-family: 'Chewy', serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #DC4500;
+  margin: 0; /* Remove default margin */
+  padding: 10px 20px; /* Add padding around the title */
+  z-index: 10; /* Ensure the title is above the rectangle */
+}
+
+.section-title1::before {
+  content: ''; /* Create a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Makes the rectangle fill the width of the screen */
+  height: 100%; /* Fills the area of the title */
+  background-color: #c6e1f2; /* The background color of the rectangle */
+  z-index: -1; /* Puts the rectangle behind the title */
+  border-radius: 5px; /* Optional: add rounded corners to the rectangle */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow effect for depth */
+}
+
+
+
+
+
+/* Notebook Box */
+.notebook-box {
+  margin: 0 auto 40px; /* Center the box with space below */
+  padding: 20px;
+  width: 80%; /* Adjust width for responsiveness */
+  max-width: 800px; /* Prevents it from becoming too wide */
+  background: #fff;
+  border: 2px dashed #FF9900; /* Dashed border to resemble a notebook */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.5;
+  box-sizing: border-box; /* Ensure padding doesn't extend the box */
+}
+
+.notebook-box p {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Add notebook-style lines */
+}
+
+.notebook-box p:last-child {
+  border-bottom: none; /* Remove line from the last paragraph */
 }
 
 
