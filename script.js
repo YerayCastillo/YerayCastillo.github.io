@@ -76,9 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('main-title').classList.add('hidden');//removes the main title
     showSection('playlist-section');
     Playlist.forEach(button => {
-      Playlist.addEventListener('click', () => {
-        const link = button.getAttribute('playlist-link'); // Get the link from the data attribute
-        window.location.href = link; // Redirect to the link
+      let clickCount = 0; 
+      
+      button.addEventListener('click', () => {
+        clickCount++;
+        
+        if (clickCount === 2) { 
+          const link = button.getAttribute('playlist-link'); // Get the link 
+          window.location.href = link; // Redirect to the link
+          clickCount = 0; // Reset the click count after redirect
+        }
       });
     });
     
