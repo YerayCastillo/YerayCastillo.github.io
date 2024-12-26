@@ -194,6 +194,8 @@ body, html {
   width: 45px; /* Adjust size */
   height: 45px; /* Adjust size */
   padding: 0;
+  margin-left: -10px;
+  margin-top: -10px;
   border: none;
   background: none; /* Remove default button background */
   cursor: pointer;
