@@ -19,6 +19,7 @@ document.getElementById('menu').addEventListener('click', () => {
   document.getElementById('playlist').classList.add('hidden');
   document.getElementById('directors-section').classList.add('hidden');
   document.getElementById('boardOfDirectors-background').classList.add('hidden');
+  document.getElementById('section-title2').classList.add('hidden');
   
   showMainMenu();
  });
@@ -43,18 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const Buttons = document.getElementById('main-buttons');
   const Playlist = document.getElementById('playlist');
   
-  //links
+
 
 
   // Actions of Anniversary button
   anniversaryButton.addEventListener('click', () => {
-    poohBackground.classList.add('hidden');//removes pooh image
-    gradientBackground.classList.add('hidden');//removes gradient
     anniversaryBackground.classList.remove('hidden');//adds anniversary image
     Buttons.classList.add('hidden');//removes all buttons
     startLiveCountdown(); // Start the live countdown
     showSection('timer-section');
-
   });
 
   // Actions of Versicles button
@@ -65,45 +63,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // Actions of playlist button
+   // Actions of playlist button
   playlistButton.addEventListener('click', () => {
     Buttons.classList.add('hidden');//removes all buttons
-    poohBackground.classList.add('hidden');//removes pooh image
-    gradientBackground.classList.add('hidden');//removes gradient
-    anniversaryBackground.classList.add('hidden');//removes anniversary image
     Playlist.classList.remove('hidden');//shows the songs
     playlistBackground.classList.remove('hidden');//shows gradient for playlist section
     document.getElementById('main-title').classList.add('hidden');//removes the main title
     showSection('playlist-section');
-    Playlist.forEach(button => {
-      let clickCount = 0; 
-      
-      button.addEventListener('click', () => {
-        clickCount++;
-        
-        if (clickCount === 2) { 
-          const link = button.getAttribute('playlist-link'); // Get the link 
-          window.location.href = link; // Redirect to the link
-          clickCount = 0; // Reset the click count after redirect
-        }
-      });
-    });
+  });
     
-    
+  
+   //Actions of Board of directors button
+  BoardOfDirectorsButton.addEventListener('click', () => {
+    Buttons.classList.add('hidden');//removes all buttons
+    boardOfDirectorsBackground.classList.remove('hidden');//shows the board of director background
+    document.getElementById('main-title').classList.add('hidden');//removes the main title
+    document.getElementById('directors-section').classList.remove('hidden');
+    document.getElementById('section-title2').classList.remove('hidden');
   });
 
-  
-
-  //Actions of Board of directors button
-  BoardOfDirectorsButton.addEventListener('click', () => {
+  giftsButton.addEventListener('click',() =>{
     Buttons.classList.add('hidden');//removes all buttons
     poohBackground.classList.add('hidden');//removes pooh image
     gradientBackground.classList.add('hidden');//removes gradient
-    anniversaryBackground.classList.add('hidden');//removes anniversary image
-    boardOfDirectorsBackground.classList.remove('hidden');
     document.getElementById('main-title').classList.add('hidden');//removes the main title
-    showSection('directors-section');
-  });
+    
+  })
 
 });
 
