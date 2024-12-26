@@ -347,7 +347,7 @@ body, html {
   display: flex;
   justify-content: center; /* Center the images */
   gap: 10px; /* Add space between images */
-  margin-top: 2400px; /* Space below the title and subtitle */
+  margin-top: 2100px; /* Space below the title and subtitle */
   flex-wrap: wrap; /* Allow images to wrap if the screen is too small */
   z-index: 3; /* Set a higher z-index to appear above .boardOfDirectors-background */
   position: relative; /* Ensure z-index takes effect */
