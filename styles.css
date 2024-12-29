@@ -197,7 +197,6 @@ body, html {
   background: none; /* Remove default button background */
   cursor: pointer;
   z-index: 3; /* Place it above other elements */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: add a subtle shadow */
 }
 
 /* Image inside the Menu Icon */
