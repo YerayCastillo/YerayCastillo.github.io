@@ -332,7 +332,7 @@ body, html {
   justify-content: center; /* Center the images */
   gap: 10px; /* Space between images */
   flex-wrap: wrap; /* Allow images to wrap */
-  margin-top: 2200px;
+  margin-top: 2170px;
   z-index: 3; /* Ensure z-index takes effect */
 }
 
@@ -408,7 +408,7 @@ body, html {
   font-size: 2rem;
   text-align: center;
   color: #DC4500;
-  margin-top: -580px;
+  margin-top: -570px;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 9;
 }
