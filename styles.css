@@ -141,7 +141,7 @@ body, html {
   font-size: 2rem;
   font-family: "Chewy", serif;
   color: whitesmoke;
-  margin-top: 35px;
+  margin-top: 0;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -303,7 +303,7 @@ body, html {
   grid-template-columns: repeat(2, 1fr); /* Two equal columns */
   gap: 15px; /* Add space between buttons */
   justify-content: center; /* Center the grid content */
-  margin-top: -20px;
+  margin-top: 5px;
 }
 /* Main button styles */
 .main-buttons button {
