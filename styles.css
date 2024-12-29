@@ -140,14 +140,14 @@ body, html {
 #versicle-section h2 {
   font-size: 2rem;
   font-family: "Chewy", serif;
-  color: whitesmoke;/* change this change colour of text */
-  margin-bottom: 10; 
+  color: whitesmoke;
+  margin-top: 20px;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Adjust the margin and padding inside the versicle box */
 #versicle-box {
-  margin-top: 1;
+  margin-top: 20px;
   padding: 8px; 
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
