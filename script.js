@@ -26,12 +26,28 @@ document.getElementById('menu').addEventListener('click', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  //Buttons action
+   //Buttons action
   const anniversaryButton = document.getElementById('anniversary-button');
   const versicleButton = document.getElementById('versicle-button');
   const playlistButton = document.getElementById('playlist-button');
   const BoardOfDirectorsButton = document.getElementById('boardOfDirectors-button');
+  const trainingButton = document.getElementById('trainig-button');
+  
   const giftsButton = document.getElementById('gifts-button');
+  const giftsSection = document.getElementById("gifts-section");
+
+  const giftInput1 = document.getElementById("gift-input-1");
+  const giftInput2 = document.getElementById("gift-input-2");
+
+  const giftsBox1 = document.getElementById("gifts-box-1");
+  const giftsBox2 = document.getElementById("gifts-box-2");
+
+  const addButton1 = document.getElementById("add-button-1");
+  const addButton2 = document.getElementById("add-button-2");
+
+  // Initialize gift data
+  let gifts1 = JSON.parse(localStorage.getItem("gifts1")) || [];
+  let gifts2 = JSON.parse(localStorage.getItem("gifts2")) || [];
 
   //Images and gradients
   const poohBackground = document.getElementById('background-pooh');
@@ -82,12 +98,73 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('section-title2').classList.remove('hidden');
   });
 
+  //Actions of Gifts button
   giftsButton.addEventListener('click',() =>{
     Buttons.classList.add('hidden');//removes all buttons
     poohBackground.classList.add('hidden');//removes pooh image
     gradientBackground.classList.add('hidden');//removes gradient
     document.getElementById('main-title').classList.add('hidden');//removes the main title
+    giftsBackground.classList.remove('hidden');
+    giftsSection.classList.remove('hidden');
     
+    const updateUI = (gifts, container) => {
+      container.innerHTML = ""; // Clear current items
+      gifts.forEach((gift, index) => {
+        const giftItem = document.createElement("div");
+        giftItem.className = "gift-item";
+        giftItem.textContent = gift;
+  
+        // Add delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "❌";
+        deleteButton.onclick = () => {
+          gifts.splice(index, 1);
+          saveData();
+          updateUI(gifts, container);
+        };
+  
+        giftItem.appendChild(deleteButton);
+        container.appendChild(giftItem);
+      });
+    };
+  
+    const saveData = () => {
+      localStorage.setItem("gifts1", JSON.stringify(gifts1));
+      localStorage.setItem("gifts2", JSON.stringify(gifts2));
+    };
+  
+    addButton1.addEventListener("click", () => {
+      const gift = giftInput1.value.trim();
+      if (gift) {
+        gifts1.push(gift);
+        saveData();
+        updateUI(gifts1, giftsBox1);
+        giftInput1.value = "";
+      }
+    });
+  
+    addButton2.addEventListener("click", () => {
+      const gift = giftInput2.value.trim();
+      if (gift) {
+        gifts2.push(gift);
+        saveData();
+        updateUI(gifts2, giftsBox2);
+        giftInput2.value = "";
+      }
+    });
+  
+    // Initial render
+    updateUI(gifts1, giftsBox1);
+    updateUI(gifts2, giftsBox2);
+  });
+
+  //Actions of Training records button
+  trainingButton.addEventListener('click', () => {
+    Buttons.classList.add('hidden');//removes all buttons
+    document.getElementById('main-title').classList.add('hidden');//removes the main title
+    trainingBackground.classList.remove('hidden');
+    document.getElementById("user-buttons").classList.remove("hidden");
+ 
   })
 
 });
