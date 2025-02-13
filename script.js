@@ -115,27 +115,30 @@ document.addEventListener('DOMContentLoaded', () => {
     incorrectMessage.classList.remove("incorrect-size");
   });
 
-  // Event listener for the "No" button
+   // Event listener for the "No" button
   document.getElementById('no-button').addEventListener('click', () => {
-    const incorrectMessage = document.getElementById('incorrect-message'); // The incorrect message element
-    
-    incorrectMessage.classList.remove('hidden'); // Make the message visible
-    
-    // Increase the font size on the first three clicks
-    incorrectClickCount++;
-    
-    if (incorrectClickCount <= 1) {
-      incorrectMessage.classList.add('incorrect-size'); // Apply size increase
-    }
-
-    // After three clicks, reset the size and click count
-    if (incorrectClickCount === 1) {
-      setTimeout(() => {
-        incorrectMessage.classList.remove('incorrect-size'); // Reset size
-        incorrectClickCount = 0; // Reset the click counter
-      }, 300); // Small delay for smooth transition
-    }
+      const incorrectMessage = document.getElementById('incorrect-message'); // The incorrect message element
+      const imageContainer = document.getElementById('image-container'); // The image container
+      
+      incorrectMessage.classList.remove('hidden'); // Make the message visible
+      imageContainer.classList.add('hidden'); // Hide the image container when clicking "No"
+  
+      // Increase the font size on the first three clicks
+      incorrectClickCount++;
+  
+      if (incorrectClickCount <= 1) {
+          incorrectMessage.classList.add('incorrect-size'); // Apply size increase
+      }
+  
+      // After three clicks, reset the size and click count
+      if (incorrectClickCount === 1) {
+          setTimeout(() => {
+              incorrectMessage.classList.remove('incorrect-size'); // Reset size
+              incorrectClickCount = 0; // Reset the click counter
+          }, 300); // Small delay for smooth transition
+      }
   });
+
 
 
  
