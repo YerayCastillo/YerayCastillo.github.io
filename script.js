@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Function to start the live countdown
 function startLiveCountdown() {
-  const anniversaryDateUTC = new Date(Date.UTC(2026, 4, 19, 0, 0, 0)); // May 19, 2025, at 00:00 UTC
+  const anniversaryDateUTC = new Date(Date.UTC(2026, 4, 19, 0, 0, 0)); // May 19, 2026, at 00:00 UTC
 
   function updateTimer() {
     const now = new Date(); // Get the current local time
@@ -338,7 +338,7 @@ const versicles = [
 // Function to load and display the daily verse
 function loadDailyVersicle() {
   const todayUTC = new Date();
-  const startDate = new Date("2024-12-23"); // Set this to the start date for the year
+  const startDate = new Date("2025-07-22"); // Set this to the start date for the year
   const dayOfYear = Math.floor((todayUTC - startDate) / (1000 * 60 * 60 * 24)) + 1; // Get the day of the year (1-146)
 
   if (dayOfYear > versicles.length) {
