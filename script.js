@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const BoardOfDirectorsButton = document.getElementById('boardOfDirectors-button');
   
   const ValentineButton = document.getElementById('valentine-button');
+    // Poems button
+  const poemsButton = document.getElementById('poems-button');
+  const poemsSection = document.getElementById('poems-section');
+  const poemsBackground = document.getElementById('poems-background');
   
 
 
@@ -79,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
     "images/valentine2.jpg",
     "images/valentine3.jpg"
   ];
+
+
+
+  poemsButton.addEventListener('click', () => {
+    showSection(poemsSection, poemsBackground);
+  });
+
 
   // Variable to track the current index of image
   let imageIndex = 0;
@@ -330,9 +341,7 @@ const versicles = [
 { "number": 121, "reference": "1 Corintios 15:58", "content": "Así que, hermanos míos amados, estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es en vano." },
 { "number": 122, "reference": "Salmo 16:8", "content": "A Jehová he puesto siempre delante de mí; porque está a mi diestra, no seré conmovido." },
 { "number": 123, "reference": "Proverbios 10:12", "content": "El odio despierta rencillas; pero el amor cubrirá todas las faltas." }
-
-  
-      
+    
 ];
     
 
@@ -363,6 +372,9 @@ function loadDailyVersicle() {
   versicleBox.innerHTML = formattedVersicle;
   versicleBox.style.whiteSpace = 'pre-wrap'; // Prevent text separation
 }
+
+
+
 
 
 
